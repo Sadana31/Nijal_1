@@ -1,0 +1,123 @@
+<!-- sb.html combined with sb.css -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sidebar</title>
+  <style>
+    :root {
+      --sidebar-expanded-width: 280px;
+      --sidebar-collapsed-width: 70px;
+    }
+
+    #sidebar-container {
+      background-color: #264653;
+      color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: var(--sidebar-expanded-width);
+      height: 100vh;
+      overflow-y: auto;
+      padding: 4rem 1rem 1rem 1rem; /* increased top padding */
+      box-sizing: border-box;
+      transition: width 0.3s ease, transform 0.3s ease;
+      z-index: 1000;
+      overflow-x: hidden;
+    }
+
+    #sidebar-container.collapsed {
+      width: var(--sidebar-collapsed-width);
+      transform: translateX(calc(-100% + var(--sidebar-collapsed-width)));
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      color: white;
+      padding: 12px 20px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: padding 0.3s ease;
+    }
+
+    .nav-link:hover {
+      background-color: #2a9d8f;
+    }
+
+    .icon {
+      font-size: 20px;
+      width: 30px;
+      min-width: 30px;
+      text-align: center;
+    }
+
+    .text {
+      margin-left: 10px;
+      transition: opacity 0.2s ease;
+    }
+
+    #sidebar-container.collapsed .text {
+      opacity: 0;
+      visibility: hidden;
+      width: 0;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    #sidebar-container.collapsed .nav-link {
+      justify-content: center;
+      padding: 12px 0;
+    }
+
+    #sidebarToggle {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background-color: #264653;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      font-size: 20px;
+      cursor: pointer;
+      border-radius: 4px;
+      z-index: 1100;
+    }
+  </style>
+</head>
+<body>
+  <div id="sidebar-container">
+    <a href="ms1.html" class="nav-link">
+      <span class="icon bi bi-house-door"></span>
+      <span class="text">Shippping Bills</span>
+    </a>
+    <a href="#" class="nav-link">
+      <span class="icon bi bi-speedometer2"></span>
+      <span class="text">IRM Details</span>
+    </a>
+    <a href="#" class="nav-link">
+      <span class="icon bi bi-gear"></span>
+      <span class="text">Mapping</span>
+    </a>
+    <!-- Add more nav links here -->
+  </div>
+
+  <button id="sidebarToggle" aria-label="Toggle sidebar">&#9776;</button>
+
+  <script>
+    const sidebar = document.getElementById('sidebar-container');
+    const toggleBtn = document.getElementById('sidebarToggle');
+
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('collapsed');
+    });
+  </script>
+
+  <!-- Include Bootstrap Icons CDN for icons -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    rel="stylesheet"
+  />
+</body>
+</html>

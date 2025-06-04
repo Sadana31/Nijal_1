@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Shipping Bill Details</title>
+
+   <link href="../styles/ms1.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <!-- Bootstrap Icons CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- Sidebar container: sidebar.html content will be loaded here -->
+  <div id="sidebar-placeholder"></div>
+
+  <div class="main-content" id="main-content">
+    <h2>SB Details Dashboard</h2>
+    <br>
+    <div class="search-container">
+      <label for="search-currency">Search by Currency:</label>
+      <input type="text" id="search-currency" placeholder="e.g. USD" />
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Sr. No.</th>
+          <th>Shipping Bill</th>
+          <th>SB Date</th>
+          <th>Port Code</th>
+          <th>Bank</th>
+          <th>Invoice No</th>
+          <th>Export Value</th>
+          <th>Outstanding</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="expand-btn" onclick="toggleExpander(this)">▸</td>
+          <td>1</td>
+          <td>1234567</td>
+          <td>10-05-2024</td>
+          <td>INBOM4</td>
+          <td>ICICI Bank</td>
+          <td>21127240024-01</td>
+          <td>$10,000.00</td>
+          <td>$6,000.00</td>
+        </tr>
+        <tr class="expander" style="display: none;">
+          <td colspan="9">
+            <table class="nested-table">
+              <tbody>
+                <tr><td>Form No:</td><td>NA</td></tr>
+                <tr><td>Export Agency:</td><td>Customs</td></tr>
+                <tr><td>AD Code:</td><td>6390000</td></tr>
+                <tr><td>IE Code:</td><td>123456789</td></tr>
+                <tr><td>Invoice Date:</td><td>05-05-2024</td></tr>
+                <tr><td>FOB Currency:</td><td>USD</td></tr>
+                <tr><td>Realized Value:</td><td>$4,000.00</td></tr>
+                <tr><td>Buyer Name:</td><td>ABC Limited</td></tr>
+                <tr><td>Buyer Address:</td><td>Test Address</td></tr>
+                <tr><td>Buyer Country Code:</td><td>US</td></tr>
+                <tr><td>Consignee Country Code:</td><td>IN</td></tr>
+                <tr><td>Port of Destination:</td><td>US</td></tr>
+                <tr><td>Commodity:</td><td>Heavy metal goods</td></tr>
+                <tr><td>Shipping Company:</td><td>Maersk</td></tr>
+                <tr><td>Vessel Name:</td><td>Vessel 55555</td></tr>
+                <tr><td>BL Date:</td><td>06-05-2024</td></tr>
+                <tr><td>Commercial Invoice:</td><td>21127240024</td></tr>
+                <tr><td>Trade Terms:</td><td>-</td></tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <div class="button-group">
+      <a href="add-sb.html" class="btn-go-to-add-sb"></a>
+      <button onclick="window.location.href='add-sb.html'" class="btn">Add Shipping Bill</button>
+
+      <a href="upload_sb.html" class="btn-go-to-add-sb"></a>
+      <button onclick="window.location.href='upload_sb.html'" class="btn">Bulk SB Upload</button>
+
+      <button class="btn" onclick="downloadSample()">Download Sample File</button>
+    </div>
+    <br>
+  </div>
+
+  <script>
+    function toggleExpander(el) {
+      const row = el.parentElement;
+      const nextRow = row.nextElementSibling;
+      const expanded = nextRow.style.display === 'table-row';
+      nextRow.style.display = expanded ? 'none' : 'table-row';
+      el.textContent = expanded ? '▸' : '▾';
+    }
+  </script>
+
+  <script src="../sidebar/sidebar-loader.js" defer></script>
+
+  <script>
+    function downloadSample() {
+      // Simulate download - replace with actual link
+      alert("Downloading sample file...");
+      window.location.href = "../files/sample.csv"; // Replace with actual sample file path
+    }
+  </script>
+
+</body>
+</html>

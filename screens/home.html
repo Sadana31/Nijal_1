@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home</title>
+  <link href="style.css" rel="stylesheet" />
+  <!-- Bootstrap CSS link here if you use it -->
+</head>
+<body>
+  <div id="sidebar-placeholder"></div>
+
+  <div style="margin-left: 280px; padding: 20px;">
+    <!-- Page content here -->
+    <h1>Home Page</h1>
+    <p>Welcome! Navigate using the sidebar.</p>
+  </div>
+
+  <script>
+    // Load sidebar.html into the placeholder div
+    fetch('sidebar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('sidebar-placeholder').innerHTML = data;
+      })
+      .catch(err => console.error('Failed to load sidebar:', err));
+  </script>
+</body>
+</html>

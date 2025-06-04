@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add Shipping Bill</title>
+  <link rel="stylesheet" href="../styles/add-sb.css" />
+</head>
+<body>
+  <div id="sidebar-placeholder"></div>
+
+  <div class="main-content" id="main-content">
+    <h2>Add Shipping Bill</h2>
+    <form id="addSbForm">
+      <fieldset>
+        <legend>Shipping Bill Basic Details</legend>
+
+        <label for="shippingBill">Shipping Bill*:</label>
+        <input type="number" id="shippingBill" name="shippingBill" maxlength="10" required />
+
+        <label for="formNo">Form No*:</label>
+        <input type="text" id="formNo" name="formNo" maxlength="12" required />
+
+        <label for="sbDate">Shipping Bill Date*:</label>
+        <input type="date" id="sbDate" name="sbDate" required />
+
+        <label for="portCode">Port Code*:</label>
+        <input type="text" id="portCode" name="portCode" maxlength="6" required />
+
+        <label for="exportAgency">Export Agency*:</label>
+        <input type="text" id="exportAgency" name="exportAgency" maxlength="10" required />
+
+        <label for="adCode">AD Code*:</label>
+        <input type="text" id="adCode" name="adCode" maxlength="8" required />
+
+        <label for="bankName">Bank Name*:</label>
+        <input type="text" id="bankName" name="bankName" maxlength="20" required />
+
+        <label for="ieCode">IE Code*:</label>
+        <input type="text" id="ieCode" name="ieCode" maxlength="10" required />
+
+        <label for="invoiceNo">Invoice No*:</label>
+        <input type="text" id="invoiceNo" name="invoiceNo" maxlength="30" required />
+
+        <label for="invoiceDate">Invoice Date*:</label>
+        <input type="date" id="invoiceDate" name="invoiceDate" required />
+
+        <label for="fobCurrency">FOB Currency*:</label>
+        <input type="text" id="fobCurrency" name="fobCurrency" maxlength="3" required />
+
+        <label for="exportBillValue">Export Bill Value*:</label>
+        <input type="number" step="0.01" id="exportBillValue" name="exportBillValue" required />
+
+        <label for="billRealizedValue">Bill Realized Value*:</label>
+        <input type="number" step="0.01" id="billRealizedValue" name="billRealizedValue" required />
+
+        <label for="billOutstandingValue">Bill Outstanding Value*:</label>
+        <input type="number" step="0.01" id="billOutstandingValue" name="billOutstandingValue" required />
+      </fieldset>
+
+      <fieldset>
+        <legend>Other Details</legend>
+
+        <label for="buyerName">Buyer Name:</label>
+        <input type="text" id="buyerName" name="buyerName" maxlength="30" />
+
+        <label for="buyerAddress">Buyer Address:</label>
+        <input type="text" id="buyerAddress" name="buyerAddress" maxlength="50" />
+
+        <label for="buyerCountryCode">Buyer Country Code:</label>
+        <input type="text" id="buyerCountryCode" name="buyerCountryCode" maxlength="2" />
+
+        <label for="consigneeName">Consignee Name:</label>
+        <input type="text" id="consigneeName" name="consigneeName" maxlength="30" />
+
+        <label for="consigneeCountryCode">Consignee Country Code:</label>
+        <input type="text" id="consigneeCountryCode" name="consigneeCountryCode" maxlength="50" />
+
+        <label for="originGoods">Origin of Goods:</label>
+        <input type="text" id="originGoods" name="originGoods" maxlength="2" />
+
+        <label for="portDestination">Port of Destination:</label>
+        <input type="text" id="portDestination" name="portDestination" maxlength="2" />
+
+        <label for="tenorInvoice">Tenor as per Invoice:</label>
+        <input type="text" id="tenorInvoice" name="tenorInvoice" maxlength="40" />
+
+        <label for="commodityDesc">Commodity Description:</label>
+        <input type="text" id="commodityDesc" name="commodityDesc" maxlength="100" />
+
+        <label for="shippingCompany">Shipping Company Name:</label>
+        <input type="text" id="shippingCompany" name="shippingCompany" maxlength="20" />
+
+        <label for="blAwbNo">BL/AWB No:</label>
+        <input type="text" id="blAwbNo" name="blAwbNo" maxlength="20" />
+
+        <label for="vesselName">Vessel Name:</label>
+        <input type="text" id="vesselName" name="vesselName" maxlength="40" />
+
+        <label for="blDate">BL Date:</label>
+        <input type="date" id="blDate" name="blDate" />
+
+        <label for="commercialInvoice">Commercial Invoice:</label>
+        <input type="text" id="commercialInvoice" name="commercialInvoice" maxlength="40" />
+
+        <label for="tradeTerms">Trade Terms:</label>
+        <input type="text" id="tradeTerms" name="tradeTerms" maxlength="3" />
+      </fieldset>
+
+      <button type="submit" class="btn-submit">Submit</button>  
+    </form>
+  </div>
+
+  <script src="../sidebar/sidebar-loader.js" defer></script>
+
+</body>
+</html>
