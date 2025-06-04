@@ -153,3 +153,27 @@ tr:hover {
   background-color: #2a9d8f;
   box-shadow: 0 4px 10px rgb(42 157 143 / 0.6);
 }
+
+.nested-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 10px 30px;
+  padding: 15px;
+  background-color: #f1f6f9;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #34495e;
+}
+
+.nested-grid div {
+  background-color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+@media (max-width: 768px) {
+  .nested-grid {
+    grid-template-columns: 1fr; 
+  }
+}
