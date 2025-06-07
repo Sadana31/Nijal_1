@@ -1,0 +1,2 @@
+Sr. No.,AD Code*,Bank Name*,IE Code*,Remittance Reference Number*,Remittance Date*,Purpose Code*,Remittance Currency*,Remittance Amount*,Utilized Amount*,Outstanding amount*,Remitter Name Name,Remitter Address,Remitter Contry Code,Remitter Bank,Other Bank reference number,Status,Remittance type
+1,6390000,ICICI Bank,123456789,0002GRS12345678,05-05-2024,P0102,USD,40000,0,40000,ABC Limited,Test Address,US,CITI Bank,Test123456,unutilized,IRM

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add IRM</title>
+  <link rel="stylesheet" href="../styles/add_files.css" />
+  <script src="../scripts/add-irm.js" defer></script>
+</head>
+<body>
+  <div id="sidebar-placeholder"></div>
+
+  <div class="main-content" id="main-content">
+    <h2>Add IRM</h2>
+    <form id="addIrmForm">
+      <fieldset>
+        <legend>Mandatory Details</legend>
+        <div class="form-grid">
+          <div>
+            <label for="adCode">AD Code*:</label>
+            <input type="text" id="adCode" name="adCode" maxlength="8" required />
+            <div class="error-msg" id="adCode-error"></div>
+          </div>
+          <div>
+            <label for="bankName">Bank Name*:</label>
+            <input type="text" id="bankName" name="bankName" maxlength="20" required />
+            <div class="error-msg" id="bankName-error"></div>
+          </div>
+          <div>
+            <label for="ieCode">IE Code*:</label>
+            <input type="text" id="ieCode" name="ieCode" maxlength="10" required />
+            <div class="error-msg" id="ieCode-error"></div>
+          </div>
+          <div>
+            <label for="remittanceRef">Remittance Reference Number*:</label>
+            <input type="text" id="remittanceRef" name="remittanceRef" required />
+            <div class="error-msg" id="remittanceRef-error"></div>
+          </div>
+          <div>
+            <label for="remittanceDate">Remittance Date*:</label>
+            <input type="date" id="remittanceDate" name="remittanceDate" required />
+            <div class="error-msg" id="remittanceDate-error"></div>
+          </div>
+          <div>
+            <label for="purposeCode">Purpose Code*:</label>
+            <input type="text" id="purposeCode" name="purposeCode" maxlength="5" required />
+            <div class="error-msg" id="purposeCode-error"></div>
+          </div>
+          <div>
+            <label for="remittanceCurrency">Remittance Currency*:</label>
+            <input type="text" id="remittanceCurrency" name="remittanceCurrency" maxlength="3" required />
+            <div class="error-msg" id="remittanceCurrency-error"></div>
+          </div>
+          <div>
+            <label for="remittanceAmount">Remittance Amount*:</label>
+            <input type="text" id="remittanceAmount" name="remittanceAmount" required />
+            <div class="error-msg" id="remittanceAmount-error"></div>
+          </div>
+          <div>
+            <label for="utilizedAmount">Utilized Amount*:</label>
+            <input type="text" id="utilizedAmount" name="utilizedAmount" required />
+            <div class="error-msg" id="utilizedAmount-error"></div>
+          </div>
+          <div>
+            <label for="outstandingAmount">Outstanding Amount*:</label>
+            <input type="text" id="outstandingAmount" name="outstandingAmount" required />
+            <div class="error-msg" id="outstandingAmount-error"></div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Optional Details</legend>
+        <div class="form-grid">
+          <div>
+            <label for="remitterName">Remitter Name:</label>
+            <input type="text" id="remitterName" name="remitterName" maxlength="30" />
+            <div class="error-msg" id="remitterName-error"></div>
+          </div>
+          <div>
+            <label for="remitterAddress">Remitter Address:</label>
+            <input type="text" id="remitterAddress" name="remitterAddress" maxlength="50" />
+            <div class="error-msg" id="remitterAddress-error"></div>
+          </div>
+          <div>
+            <label for="remitterCountryCode">Remitter Country Code:</label>
+            <input type="text" id="remitterCountryCode" name="remitterCountryCode" maxlength="2" />
+            <div class="error-msg" id="remitterCountryCode-error"></div>
+          </div>
+          <div>
+            <label for="remitterBank">Remitter Bank:</label>
+            <input type="text" id="remitterBank" name="remitterBank" maxlength="20" />
+            <div class="error-msg" id="remitterBank-error"></div>
+          </div>
+          <div>
+            <label for="otherBankRef">Other Bank Reference Number:</label>
+            <input type="text" id="otherBankRef" name="otherBankRef" maxlength="20" />
+            <div class="error-msg" id="otherBankRef-error"></div>
+          </div>
+          <div>
+            <label for="status">Status:</label>
+            <input type="text" id="status" name="status" maxlength="20" />
+            <div class="error-msg" id="status-error"></div>
+          </div>
+          <div>
+            <label for="remittanceType">Remittance Type:</label>
+            <input type="text" id="remittanceType" name="remittanceType" maxlength="10" />
+            <div class="error-msg" id="remittanceType-error"></div>
+          </div>
+        </div>
+      </fieldset>
+
+      <button type="submit" class="btn-submit">Submit</button>
+    </form>
+  </div>
+
+  <script src="../sidebar/sidebar_loader.js" defer></script>
+  <script src="../validations/add_irm.js" defer></script>
+</body>
+</html>

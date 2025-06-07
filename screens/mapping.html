@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SB IRM Mapping</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../styles/mapping.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <!-- Bootstrap Icons CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+</head>
+<body>
+  <!-- Sidebar container: sidebar.html content will be loaded here -->
+  <div id="sidebar-placeholder"></div>
+
+
+  <div id="main-content" class="main-content">
+    <div class="container mt-5">
+    <h4>SB Details</h4>
+
+    <!-- SB Search Section -->
+    <div class="search-container">
+      <label for="search-container">Search by:</label>
+      <select id="search-container">
+        <option value="sbNumber">Shipping Bill Number</option>
+        <option value="sbDate">Shipping Bill Date</option>
+        <option value="invoiceNumber">Invoice Number</option>
+        <option value="invoiceDate">Invoice Date</option>
+        <option value="buyerName">Buyer Name</option>
+        <option value="buyerCountry">Buyer Country</option>
+        <option value="fobCurrency">FOB Currency</option>
+        <option value="remittanceRef">Remittance Reference Number</option>
+      </select>
+      <input type="text" id="search-value" placeholder="Enter search value">
+      <button class="btn btn-primary" id="search-btn">Search</button>
+    </div>
+
+    <!-- SB Fields -->
+    <div class="row g-3" id="sb-details">
+      <div class="col-md-6">
+        <label class="form-label">Shipping Bill</label>
+        <input type="text" class="form-control" disabled>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Form No</label>
+        <input type="text" class="form-control" disabled>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Shipping Bill Date</label>
+        <input type="date" class="form-control" disabled>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Port Code</label>
+        <input type="text" class="form-control" disabled>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Export Agency</label>
+        <input type="text" class="form-control" disabled>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">AD Code</label>
+        <input type="text" class="form-control" disabled>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">IE Code</label>
+        <input type="text" class="form-control" disabled>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Invoice No</label>
+        <input type="text" class="form-control" disabled>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Invoice Date</label>
+        <input type="date" class="form-control" disabled>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">FOB Currency</label>
+        <input type="text" class="form-control" disabled>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Export Bill Value</label>
+        <input type="text" class="form-control" disabled>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Realized Value</label>
+        <input type="text" class="form-control" disabled>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Outstanding Value</label>
+        <input type="text" class="form-control" disabled>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">SB Utilization Amount</label>
+        <input type="number" class="form-control" id="utiAmount" placeholder="Enter amount">
+      </div>
+    </div>
+
+    <!-- Next Button -->
+    <div class="text-end mt-4">
+      <button class="btn btn-primary" id="next-btn">Next</button>
+    </div>
+
+    <!-- IRM Section (Initially Hidden) -->
+    <div id="irm-section" class="mt-5" >
+      <h4>IRM Mapping</h4>
+      <div class="search-container">
+        <label for="irm-search-field">Search by:</label>
+        <select id="irm-search-field">
+          <option value="refNumber">Remittance Reference Number</option>
+          <option value="irmDate">IRM Date</option>
+          <option value="bankName">Bank Name</option>
+          <option value="remitterBank">Remitter Bank</option>
+          <option value="remitterName">Remitter Name</option>
+          <option value="remitterCountryCode">Remitter Country Code</option>
+          <option value="status">Status</option>
+          <option value="remittanceAmount">Remittance Amount</option>
+        </select>
+        <input type="text" id="irm-search-value" placeholder="Enter search value">
+        <button class="btn btn-secondary" id="irm-search-btn">Search</button>
+      </div>
+
+      <div class="row g-3" id="remittance-details">
+  <div class="col-md-6">
+    <label class="form-label">Sr. No.</label>
+    <input type="number" class="form-control" id="srNo" name="srNo" disabled />
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">Remittance Reference Number</label>
+    <input type="text" class="form-control" id="remittanceRefNo" name="remittanceRefNo" disabled />
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">AD Code</label>
+    <input type="text" class="form-control" id="adCode" name="adCode" disabled />
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">Bank Name</label>
+    <input type="text" class="form-control" id="bankName" name="bankName" disabled />
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">IE Code</label>
+    <input type="text" class="form-control" id="ieCode" name="ieCode" disabled />
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">Remittance Date</label>
+    <input type="date" class="form-control" id="remittanceDate" name="remittanceDate" disabled />
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">Purpose Code</label>
+    <input type="text" class="form-control" id="purposeCode" name="purposeCode" disabled />
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">Remittance Currency</label>
+    <input type="text" class="form-control" id="remittanceCurrency" name="remittanceCurrency" disabled />
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">Remittance Amount</label>
+    <input type="number" class="form-control" id="remittanceAmount" name="remittanceAmount" disabled />
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">Utilized Amount</label>
+    <input type="number" class="form-control" id="utilizedAmount" name="utilizedAmount" disabled />
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">Outstanding Amount</label>
+    <input type="number" class="form-control" id="outstandingAmount" name="outstandingAmount" disabled />
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">IRM Utilization Amount</label>
+    <input type="number" class="form-control" id="irmUtilizationAmount" name="irmUtilizationAmount"/>
+  </div>
+</div>
+
+      <br>
+
+      <div class="text-end">
+        <button class="btn btn-primary" id="realize-btn">SB Realization</button>
+      </div>
+
+
+    <!-- Mapped Table (Initially Hidden) -->
+    <div id="mapped-table-section" class="mt-5" style="display: none;">
+  <h4>Mapped IRM Table</h4>
+  <div>
+    <table>
+    <thead>
+      <tr class="header">
+        <th></th>
+        <th>Sr. No.</th>
+        <th>Shipping Bill</th>
+        <th>SB Date</th>
+        <th>Port Code</th>
+        <th>Bank</th>
+        <th>Invoice No</th>
+        <th>Export Value</th>
+        <th>Outstanding</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="expand-btn" onclick="toggleExpander(this)">▸</td>
+        <td>1</td>
+        <td>SB00123</td>
+        <td>15-01-2024</td>
+        <td>INMAA1</td>
+        <td>XYZ Bank</td>
+        <td>INV456</td>
+        <td>$10,000.00</td>
+        <td>$2,000.00</td>
+      </tr>
+      <tr class="expander" style="display: none;">
+        <td colspan="9">
+          <div class="nested-grid">
+            <div><strong>Form No:</strong> F123</div>
+            <div><strong>Export Agency:</strong> ABC Exports</div>
+            <div><strong>AD Code:</strong> AD0987</div>
+            <div><strong>IE Code:</strong> IE123456</div>
+            <div><strong>Invoice Date:</strong> 14-01-2024</div>
+            <div><strong>FOB Currency:</strong> USD</div>
+            <div><strong>Realized Value:</strong> $8,000.00</div>
+            <div><strong>Remittance Ref No:</strong> IRM789</div>
+            <div><strong>Remittance Date:</strong> 20-01-2024</div>
+            <div><strong>Purpose Code:</strong> P0101</div>
+            <div><strong>Remittance Currency:</strong> USD</div>
+            <div><strong>Remittance Amount:</strong> $8,000.00</div>
+            <div><strong>Utilized Amount:</strong> $5,000.00</div>
+            <div><strong>IRM Outstanding:</strong> $3,000.00</div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+  </div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('next-btn').onclick = () => {
+      document.getElementById('irm-section').style.display = 'block';
+    };
+
+    document.getElementById('add-irm-btn').onclick = () => {
+      const tbody = document.querySelector('#irm-table tbody');
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td><input type="text" class="form-control"></td>
+        <td><input type="date" class="form-control"></td>
+        <td><input type="text" class="form-control"></td>
+        <td><input type="text" class="form-control"></td>
+        <td><input type="text" class="form-control"></td>
+        <td><input type="text" class="form-control"></td>
+        <td><input type="text" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control utilized" min="0"></td>
+        <td><button class="btn btn-danger btn-sm" onclick="this.closest('tr').remove(); calculateTotal()">Remove</button></td>
+      `;
+      tbody.appendChild(row);
+    };
+
+    document.addEventListener('input', function (e) {
+      if (e.target.classList.contains('utilized')) calculateTotal();
+    });
+
+    function calculateTotal() {
+      const limit = parseFloat(document.getElementById('utiAmount').value) || 0;
+      const inputs = document.querySelectorAll('.utilized');
+      let total = 0;
+      inputs.forEach(input => {
+        total += parseFloat(input.value) || 0;
+      });
+      if (total > limit) alert('Total IRM Utilization exceeds SB Utilization Amount!');
+    }
+  });
+
+  document.getElementById('realize-btn').onclick = () => {
+      document.getElementById('mapped-table-section').style.display = 'block';
+    };
+
+    function toggleExpander(btn) {
+  const row = btn.closest('tr');       // current main row
+  const next = row.nextElementSibling; // expanded detail row
+
+  if (!next || !next.classList.contains('expander')) return;
+
+  const isExpanded = next.style.display === 'table-row';
+  next.style.display = isExpanded ? 'none' : 'table-row';
+  btn.textContent = isExpanded ? '▸' : '▾';
+}
+
+</script>
+
+  <script src="../sidebar/sidebar_loader.js" defer></script>
+
+  
+</body>
+</html>

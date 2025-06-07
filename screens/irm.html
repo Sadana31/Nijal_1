@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>IRM Details</title>
+
+  <link href="../styles/ms.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+</head>
+<body>
+
+  <div id="sidebar-placeholder"></div>
+
+  <div class="main-content" id="main-content">
+    <h2>IRM Management</h2>
+
+    <div class="search-container">
+      <label for="irm-search-field">Search by:</label>
+      <select id="irm-search-field">
+        <option value="refNumber">Remittance Reference Number</option>
+        <option value="irmDate">IRM Date</option>
+        <option value="bankName">Bank Name</option>
+        <option value="remitterBank">Remitter Bank</option>
+        <option value="remitterName">Remitter Name</option>
+        <option value="remitterCountryCode">Remitter Country Code</option>
+        <option value="status">Status</option>
+        <option value="remittanceAmount">Remittance Amount</option>
+      </select>
+
+      <input type="text" id="irm-search-value" placeholder="Enter search value" />
+      <button class="btn" id="search-btn">Search</button>
+    </div>
+
+    <br />
+
+    <table border="1" style="width: 100%; border-collapse: collapse;">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Sr. No.</th>
+          <th>Bank Name</th>
+          <th>Remittance Reference Number</th>
+          <th>Remittance Date</th>
+          <th>Purpose Code</th>
+          <th>Remittance Currency</th>
+          <th>Remittance Amount</th>
+          <th>Outstanding amount</th>
+          <th>Remitter Name Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td onclick="toggleExpander(this)" style="cursor: pointer; user-select:none;">▸</td>
+          <td>1</td>
+          <td>ICICI Bank</td>
+          <td>0002GRS12345678</td>
+          <td>05-05-2024</td>
+          <td>P0102</td>
+          <td>USD</td>
+          <td>$40,000.00</td>
+          <td>$40,000.00</td>
+          <td>ABC Limited</td>
+        </tr>
+        <tr class="expander" style="display: none;">
+          <td colspan="10" style="padding: 0;">
+            <table border="1" style="width: 100%; border-collapse: collapse; margin: 0;">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>AD Code</th>
+                  <th>IE Code</th>
+                  <th>Remitter Country Code</th>
+                  <th>Remitter Bank</th>
+                  <th>Other Bank Reference Number</th>
+                  <th>Status</th>
+                  <th>Remittance Type</th>
+                  <th>Utilized Amount</th>
+                  <th>Remitter Address</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td>6390000</td>
+                  <td>123456789</td>
+                  <td>US</td>
+                  <td>CITI Bank</td>
+                  <td>Test123456</td>
+                  <td>Unutilized</td>
+                  <td>IRM</td>
+                  <td>$0.00</td>
+                  <td>Test Address</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br />
+
+    <div class="button-group">
+      <button onclick="window.location.href='add_irm.html'" class="btn">Add IRM</button>
+      <button onclick="window.location.href='upload_irm.html'" class="btn">Bulk IRM Upload</button>
+      <button class="btn" onclick="downloadSample()">Export File</button>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleExpander(el) {
+      const row = el.parentElement;
+      const nextRow = row.nextElementSibling;
+      const expanded = nextRow.style.display === 'table-row';
+      nextRow.style.display = expanded ? 'none' : 'table-row';
+      el.textContent = expanded ? '▸' : '▾';
+    }
+  </script>
+
+  <script src="../sidebar/sidebar_loader.js" defer></script>
+
+  <script>
+    function downloadSample() {
+      window.location.href = "../files/sample_irm.csv";
+    }
+
+    const irmSearchField = document.getElementById('irm-search-field');
+    const irmSearchValue = document.getElementById('irm-search-value');
+
+    irmSearchField.addEventListener('change', () => {
+      const field = irmSearchField.value;
+      let placeholder = 'Enter search value';
+      switch(field) {
+        case 'refNumber': placeholder = 'Enter Remittance Reference Number'; break;
+        case 'irmDate': placeholder = 'Enter IRM Date'; break;
+        case 'bankName': placeholder = 'Enter Bank Name'; break;
+        case 'remitterBank': placeholder = 'Enter Remitter Bank'; break;
+        case 'remitterName': placeholder = 'Enter Remitter Name'; break;
+        case 'remitterCountryCode': placeholder = 'Enter Remitter Country Code'; break;
+        case 'status': placeholder = 'Enter Status'; break;
+        case 'remittanceAmount': placeholder = 'Enter Remittance Amount'; break;
+      }
+      irmSearchValue.placeholder = placeholder;
+    });
+  </script>
+
+</body>
+</html>

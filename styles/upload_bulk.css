@@ -103,3 +103,23 @@ input[type="file"] {
   font-style: italic;
   color: #444;
 }
+
+.btn-download {
+  background-color: #003366; /* Bootstrap primary blue */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+.btn-download:hover {
+  background-color: #0055a5;
+}
+
+.btn-download i {
+  margin-right: 6px;
+}

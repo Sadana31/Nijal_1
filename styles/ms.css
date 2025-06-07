@@ -71,10 +71,11 @@ th, td {
   border-bottom: 1px solid #e1e8f0;
   vertical-align: middle;
   color: #34495e;
+  position: relative;
 }
 
 th {
-  background-color: #e9f1f7;
+  background-color: #deeefb;
   font-weight: 700;
   color: #1f3a57;
 }
@@ -88,13 +89,23 @@ tr:hover {
   transition: background-color 0.3s ease;
 }
 
+table > tbody > tr:not(.expander) {
+  border-top: 1px solid black;
+}
+
+tr.expander,
+tr.expander * {
+  border: none !important;
+}
+
+
 /* Expand button */
 .expand-btn {
   cursor: pointer;
   color: #264653;
   font-weight: 700;
   user-select: none;
-  width: 25px;
+  width: 120px;
   text-align: center;
   font-size: 16px;
   transition: color 0.3s ease;
@@ -128,6 +139,8 @@ tr:hover {
   width: 30%;
   color: #264653;
 }
+
+
 
 /* Button group */
 .button-group {
@@ -177,3 +190,56 @@ tr:hover {
     grid-template-columns: 1fr; 
   }
 }
+
+tr.expander table th {
+  background-color: #ecf0f8;
+  font-weight: 500;
+}
+
+.column-filter {
+  height: 40px;
+  font-size: 13px; /* Reduce font if it's being clipped */
+  padding: 6px 10px;
+  line-height: 1.2;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border-radius: 20%;
+  border-width: 0.2mm;
+}
+
+.autocomplete {
+      position: relative;
+    }
+.filter-row input {
+  font-size: 14px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.autocomplete-items {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: white;
+  z-index: 10;
+}
+
+    .autocomplete-item {
+      padding: 10px;
+      cursor: pointer;
+      background-color: #fff;
+      border-bottom: 1px solid #d4d4d4;
+    }
+    .autocomplete-item:hover, .autocomplete-active {
+      background-color: #e9f1f7;
+
+    }
