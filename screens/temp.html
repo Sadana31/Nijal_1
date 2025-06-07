@@ -2,154 +2,131 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Show N Rows Only</title>
+  <title>Show N Rows Only - Demo</title>
   <style>
-    td, th {
-      padding: 5px 10px;
-      border: 1px solid #ccc;
-    }
     table {
-      border-collapse: collapse;
       width: 100%;
+      border-collapse: collapse;
+    }
+    td, th {
+      border: 1px solid #ccc;
+      padding: 5px 10px;
     }
     .expander {
       display: none;
+    }
+    .expand-toggle {
+      cursor: pointer;
+      user-select: none;
+      text-align: center;
+      font-weight: bold;
+      width: 20px;
     }
   </style>
 </head>
 <body>
 
-<div style="text-align: right; margin-bottom: 10px;">
-  <label for="entriesSelect">Show 
+  <label for="entriesSelect">Show
     <select id="entriesSelect" onchange="changeEntries()">
       <option value="1">1</option>
-      <option value="2" selected>2</option>
-      <option value="8">8</option>
-    </select> entries
-  </label>
-</div>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+  entries</label>
 
-<table border="1" id="mainTable">
-  <thead>
-    <tr>
-      <th>Sr. No.</th>
-      <th>Shipping Bill</th>
-      <th>Form No</th>
-      <th>Shipping Bill Date</th>
-      <th>Port Code</th>
-      <th>Bank Name</th>
-      <th>Invoice Count</th>
-      <th>FOB Currency</th>
-      <th>Export Bill Value</th>
-      <th>Bill Outstanding Value</th>
-      <th>Buyer Name</th>
-      <th>Buyer Country Code</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="expand-toggle" onclick="toggleExpander(this)" style="cursor: pointer; user-select:none; text-align:center; font-weight:bold;">
-        ▸
-      </td>
-      <td>1</td>
-      <td>1234567</td>
-      <td>NA</td>
-      <td>10-05-2024</td>
-      <td>INBOM4</td>
-      <td>ICICI Bank</td>
-      <td>1</td>
-      <td>USD</td>
-      <td>$10,000.00</td>
-      <td>$6,000.00</td>
-      <td>ABC Limited</td>
-      <td>US</td>
-    </tr>
-    <tr class="expander">
-      <td colspan="13" style="padding: 0;">
-        <table border="1" style="width: 100%; border-collapse: collapse; margin: 0;">
-          <thead>
-            <tr>
-              <th></th><th>IE Code</th><th>Invoice Date</th><th>Realized Value</th>
-              <th>Buyer Address</th><th>Consignee Country Code</th><th>Port of Destination</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td></td><td>123456789</td><td>05-05-2024</td><td>$4,000.00</td>
-              <td>Test Address</td><td>IN</td><td>US</td>
-            </tr>
-          </tbody>
-          <thead>
-            <tr>
-              <th></th><th>Shipping Company</th><th>Vessel Name</th><th>BL Date</th>
-              <th>Commercial Invoice</th><th>Trade Terms</th><th>Commodity</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td></td><td>Maersk</td><td>Vessel 55555</td><td>06-05-2024</td>
-              <td>21127240024</td><td>-</td><td>Heavy metal goods</td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
+  <table id="mainTable">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Sr. No.</th>
+        <th>Data</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Row 1 -->
+      <tr>
+        <td class="expand-toggle" onclick="toggleExpander(this)">▸</td>
+        <td>1</td>
+        <td>Row 1 content</td>
+      </tr>
+      <tr class="expander">
+        <td colspan="3">Expanded content for row 1</td>
+      </tr>
 
-    <tr>
-      <td>2</td><td>7654321</td><td>NA</td><td>12-05-2024</td><td>INDEL3</td><td>HDFC Bank</td>
-      <td>2</td><td>EUR</td><td>€15,000.00</td><td>€9,000.00</td><td>XYZ Corp</td><td>DE</td><td></td>
-    </tr>
-    <tr class="expander">
-      <td colspan="13">Extra info here</td>
-    </tr>
+      <!-- Row 2 -->
+      <tr>
+        <td class="expand-toggle" onclick="toggleExpander(this)">▸</td>
+        <td>2</td>
+        <td>Row 2 content</td>
+      </tr>
+      <tr class="expander">
+        <td colspan="3">Expanded content for row 2</td>
+      </tr>
 
-    <tr>
-      <td>3</td><td>1122334</td><td>NA</td><td>15-05-2024</td><td>INKOL1</td><td>Axis Bank</td>
-      <td>3</td><td>GBP</td><td>£20,000.00</td><td>£10,000.00</td><td>Delta Co</td><td>UK</td><td></td>
-    </tr>
-    <tr class="expander">
-      <td colspan="13">Extra info here</td>
-    </tr>
-  </tbody>
-</table>
+      <!-- Row 3 -->
+      <tr>
+        <td class="expand-toggle" onclick="toggleExpander(this)">▸</td>
+        <td>3</td>
+        <td>Row 3 content</td>
+      </tr>
+      <tr class="expander">
+        <td colspan="3">Expanded content for row 3</td>
+      </tr>
+    </tbody>
+  </table>
 
-<script>
-  function changeEntries() {
-    const selected = parseInt(document.getElementById("entriesSelect").value, 10);
-    const rows = Array.from(document.querySelectorAll("#mainTable tbody tr"));
-    
-    let count = 0;
-    for (let i = 0; i < rows.length; i++) {
-      const row = rows[i];
+  <script>
+    function toggleExpander(el) {
+      const mainRow = el.parentElement;
+      const expanderRow = mainRow.nextElementSibling;
 
-      if (!row.classList.contains("expander")) {
-        count++;
-        if (count <= selected) {
-          row.style.display = "";
-          if (i + 1 < rows.length && rows[i + 1].classList.contains("expander")) {
-            rows[i + 1].style.display = "none"; // always hide expander
+      if (!expanderRow || !expanderRow.classList.contains('expander')) return;
+
+      if (expanderRow.style.display === 'table-row') {
+        expanderRow.style.display = 'none';
+        el.textContent = '▸';
+      } else {
+        expanderRow.style.display = 'table-row';
+        el.textContent = '▾';
+      }
+    }
+
+    function changeEntries() {
+      const table = document.getElementById('mainTable');
+      const rows = Array.from(table.querySelectorAll('tbody > tr'));
+
+      // Filter main rows (ignore expanders)
+      const mainRows = rows.filter(row => !row.classList.contains('expander'));
+      const selected = parseInt(document.getElementById('entriesSelect').value);
+
+      let shownCount = 0;
+      for (let i = 0; i < mainRows.length; i++) {
+        const mainRow = mainRows[i];
+        const expanderRow = mainRow.nextElementSibling && mainRow.nextElementSibling.classList.contains('expander')
+          ? mainRow.nextElementSibling
+          : null;
+
+        if (shownCount < selected) {
+          mainRow.style.display = '';
+          if (expanderRow) {
+            const toggleCell = mainRow.querySelector('.expand-toggle');
+            expanderRow.style.display = (toggleCell && toggleCell.textContent === '▾') ? 'table-row' : 'none';
           }
+          shownCount++;
         } else {
-          row.style.display = "none";
-          if (i + 1 < rows.length && rows[i + 1].classList.contains("expander")) {
-            rows[i + 1].style.display = "none";
-          }
+          mainRow.style.display = 'none';
+          if (expanderRow) expanderRow.style.display = 'none';
+
+          // Reset toggle arrow
+          const toggleCell = mainRow.querySelector('.expand-toggle');
+          if (toggleCell) toggleCell.textContent = '▸';
         }
       }
     }
-  }
 
-  document.addEventListener("DOMContentLoaded", changeEntries);
-
-  function toggleExpander(el) {
-    const parentRow = el.closest("tr");
-    const nextRow = parentRow.nextElementSibling;
-    if (nextRow && nextRow.classList.contains("expander")) {
-      nextRow.style.display = nextRow.style.display === "none" ? "table-row" : "none";
-      el.textContent = nextRow.style.display === "none" ? "▸" : "▾";
-    }
-  }
-</script>
-
+    window.onload = () => {
+      changeEntries();
+    };
+  </script>
 </body>
 </html>

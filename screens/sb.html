@@ -29,9 +29,9 @@
     <div style="text-align: right; margin-bottom: 20px;">
   <label for="entriesSelect">Show 
     <select id="entriesSelect" onchange="changeEntries()">
-      <option value="5">5</option>
-      <option value="10">10</option>
-      <option value="25">25</option>
+      <option value="15">5</option>
+      <option value="30" selected>10</option>
+      <option value="75">25</option>
       <option value="50">50</option>
       <option value="100">100</option>
     </select> entries
@@ -628,53 +628,56 @@
 
   <script>
   function toggleExpander(el) {
-    const mainRow = el.parentElement;
-    const expanderRow = mainRow.nextElementSibling;
+      const mainRow = el.parentElement;
+      const expanderRow = mainRow.nextElementSibling;
 
-    if (!expanderRow || !expanderRow.classList.contains('expander')) return;
+      if (!expanderRow || !expanderRow.classList.contains('expander')) return;
 
-    if (expanderRow.style.display === 'table-row') {
-      expanderRow.style.display = 'none';
-      el.textContent = '▸';
-    } else {
-      expanderRow.style.display = 'table-row';
-      el.textContent = '▾';
-    }
-  }
-
-  function changeEntries() {
-    const table = document.getElementById('mainTable');
-    const rows = table.querySelectorAll('tbody > tr:not(.expander)');
-    const selected = parseInt(document.getElementById('entriesSelect').value);
-
-    let count = 0;
-    rows.forEach(row => {
-      const expanderRow = row.nextElementSibling && row.nextElementSibling.classList.contains('expander') 
-                          ? row.nextElementSibling 
-                          : null;
-
-      if (count < selected) {
-        row.style.display = '';
-        // Show expander only if toggle arrow is down
-        if (expanderRow) {
-          const toggleCell = row.querySelector('.expand-toggle');
-          if (toggleCell.textContent === '▾') {
-            expanderRow.style.display = 'table-row';
-          } else {
-            expanderRow.style.display = 'none';
-          }
-        }
-        count++;
+      if (expanderRow.style.display === 'table-row') {
+        expanderRow.style.display = 'none';
+        el.textContent = '▸';
       } else {
-        row.style.display = 'none';
-        if (expanderRow) expanderRow.style.display = 'none';
+        expanderRow.style.display = 'table-row';
+        el.textContent = '▾';
       }
-    });
-  }
+    }
 
-  window.onload = () => {
-    changeEntries();
-  }
+    function changeEntries() {
+      const table = document.getElementById('mainTable');
+      const rows = Array.from(table.querySelectorAll('tbody > tr'));
+
+      // Filter main rows (ignore expanders)
+      const mainRows = rows.filter(row => !row.classList.contains('expander'));
+      const selected = parseInt(document.getElementById('entriesSelect').value);
+
+      let shownCount = 0;
+      for (let i = 0; i < mainRows.length; i++) {
+        const mainRow = mainRows[i];
+        const expanderRow = mainRow.nextElementSibling && mainRow.nextElementSibling.classList.contains('expander')
+          ? mainRow.nextElementSibling
+          : null;
+
+        if (shownCount < selected) {
+          mainRow.style.display = '';
+          if (expanderRow) {
+            const toggleCell = mainRow.querySelector('.expand-toggle');
+            expanderRow.style.display = (toggleCell && toggleCell.textContent === '▾') ? 'table-row' : 'none';
+          }
+          shownCount++;
+        } else {
+          mainRow.style.display = 'none';
+          if (expanderRow) expanderRow.style.display = 'none';
+
+          // Reset toggle arrow
+          const toggleCell = mainRow.querySelector('.expand-toggle');
+          if (toggleCell) toggleCell.textContent = '▸';
+        }
+      }
+    }
+
+    window.onload = () => {
+      changeEntries();
+    };
 </script>
 
 
