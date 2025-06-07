@@ -27,40 +27,40 @@
     </div>
 
     <div style="text-align: right; margin-bottom: 20px;">
-  <label for="entriesSelect">Show 
-    <select id="entriesSelect" onchange="changeEntries()">
-      <option value="15">5</option>
-      <option value="30" selected>10</option>
-      <option value="75">25</option>
-      <option value="50">50</option>
-      <option value="100">100</option>
-    </select> entries
-  </label>
-</div>
+      <label for="entriesSelect">Show 
+        <select id="entriesSelect" onchange="changeEntries()">
+          <option value="15">5</option>
+          <option value="30" selected>10</option>
+          <option value="75">25</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select> entries
+      </label>
+    </div>
  
     <!-- Search Row Table -->
-<table style="width: 100%; border-collapse: collapse; margin-bottom: 5px;">
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td><input type="text" class="column-filter" onkeyup="filterTable(2, this.value)" placeholder="Shipping Bill"></td>
-    <td><input type="text" class="column-filter" onkeyup="filterTable(3, this.value)" placeholder="Form No"></td>
-    <td><input type="text" class="column-filter" onkeyup="filterTable(4, this.value)" placeholder="Date"></td>
-    <td><input type="text" class="column-filter" onkeyup="filterTable(5, this.value)" placeholder="Port Code"></td>
-    <td><input type="text" class="column-filter" onkeyup="filterTable(6, this.value)" placeholder="Bank Name"></td>
-    <td><input type="text" class="column-filter" onkeyup="filterTable(7, this.value)" placeholder="Invoice Count"></td>
-    <td><input type="text" class="column-filter" onkeyup="filterTable(8, this.value)" placeholder="Currency"></td>
-    <td><input type="text" class="column-filter" onkeyup="filterTable(9, this.value)" placeholder="Export Value"></td>
-    <td><input type="text" class="column-filter" onkeyup="filterTable(10, this.value)" placeholder="Outstanding"></td>
-    <td><input type="text" class="column-filter" onkeyup="filterTable(11, this.value)" placeholder="Buyer Name"></td>
-    <td>
-      <div class="autocomplete">
-        <input id="countryInput" type="text" placeholder="Start typing code or country..." class="column-filter" onkeyup="filterTable(12, this.value)"/>
-      </div>
-    </td>
-  </tr>
-</table>
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 5px;">
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><input type="text" class="column-filter" onkeyup="filterTable(2, this.value)" placeholder="Shipping Bill"></td>
+        <td><input type="text" class="column-filter" onkeyup="filterTable(3, this.value)" placeholder="Form No"></td>
+        <td><input type="text" class="column-filter" onkeyup="filterTable(4, this.value)" placeholder="Date"></td>
+        <td><input type="text" class="column-filter" onkeyup="filterTable(5, this.value)" placeholder="Port Code"></td>
+        <td><input type="text" class="column-filter" onkeyup="filterTable(6, this.value)" placeholder="Bank Name"></td>
+        <td><input type="text" class="column-filter" onkeyup="filterTable(7, this.value)" placeholder="Invoice Count"></td>
+        <td><input type="text" class="column-filter" onkeyup="filterTable(8, this.value)" placeholder="Currency"></td>
+        <td><input type="text" class="column-filter" onkeyup="filterTable(9, this.value)" placeholder="Export Value"></td>
+        <td><input type="text" class="column-filter" onkeyup="filterTable(10, this.value)" placeholder="Outstanding"></td>
+        <td><input type="text" class="column-filter" onkeyup="filterTable(11, this.value)" placeholder="Buyer Name"></td>
+        <td>
+          <div class="autocomplete">
+            <input id="countryInput" type="text" placeholder="Start typing code or country..." class="column-filter" onkeyup="filterTable(12, this.value)"/>
+          </div>
+        </td>
+      </tr>
+    </table>
 
     <table border="1" id="mainTable" style="width: 100%; border-collapse: collapse;">
       <thead>
@@ -627,58 +627,58 @@
   </script>
 
   <script>
-  function toggleExpander(el) {
-      const mainRow = el.parentElement;
-      const expanderRow = mainRow.nextElementSibling;
+    function toggleExpander(el) {
+        const mainRow = el.parentElement;
+        const expanderRow = mainRow.nextElementSibling;
 
-      if (!expanderRow || !expanderRow.classList.contains('expander')) return;
+        if (!expanderRow || !expanderRow.classList.contains('expander')) return;
 
-      if (expanderRow.style.display === 'table-row') {
-        expanderRow.style.display = 'none';
-        el.textContent = '▸';
-      } else {
-        expanderRow.style.display = 'table-row';
-        el.textContent = '▾';
-      }
-    }
-
-    function changeEntries() {
-      const table = document.getElementById('mainTable');
-      const rows = Array.from(table.querySelectorAll('tbody > tr'));
-
-      // Filter main rows (ignore expanders)
-      const mainRows = rows.filter(row => !row.classList.contains('expander'));
-      const selected = parseInt(document.getElementById('entriesSelect').value);
-
-      let shownCount = 0;
-      for (let i = 0; i < mainRows.length; i++) {
-        const mainRow = mainRows[i];
-        const expanderRow = mainRow.nextElementSibling && mainRow.nextElementSibling.classList.contains('expander')
-          ? mainRow.nextElementSibling
-          : null;
-
-        if (shownCount < selected) {
-          mainRow.style.display = '';
-          if (expanderRow) {
-            const toggleCell = mainRow.querySelector('.expand-toggle');
-            expanderRow.style.display = (toggleCell && toggleCell.textContent === '▾') ? 'table-row' : 'none';
-          }
-          shownCount++;
+        if (expanderRow.style.display === 'table-row') {
+          expanderRow.style.display = 'none';
+          el.textContent = '▸';
         } else {
-          mainRow.style.display = 'none';
-          if (expanderRow) expanderRow.style.display = 'none';
-
-          // Reset toggle arrow
-          const toggleCell = mainRow.querySelector('.expand-toggle');
-          if (toggleCell) toggleCell.textContent = '▸';
+          expanderRow.style.display = 'table-row';
+          el.textContent = '▾';
         }
       }
-    }
 
-    window.onload = () => {
-      changeEntries();
-    };
-</script>
+      function changeEntries() {
+        const table = document.getElementById('mainTable');
+        const rows = Array.from(table.querySelectorAll('tbody > tr'));
+
+        // Filter main rows (ignore expanders)
+        const mainRows = rows.filter(row => !row.classList.contains('expander'));
+        const selected = parseInt(document.getElementById('entriesSelect').value);
+
+        let shownCount = 0;
+        for (let i = 0; i < mainRows.length; i++) {
+          const mainRow = mainRows[i];
+          const expanderRow = mainRow.nextElementSibling && mainRow.nextElementSibling.classList.contains('expander')
+            ? mainRow.nextElementSibling
+            : null;
+
+          if (shownCount < selected) {
+            mainRow.style.display = '';
+            if (expanderRow) {
+              const toggleCell = mainRow.querySelector('.expand-toggle');
+              expanderRow.style.display = (toggleCell && toggleCell.textContent === '▾') ? 'table-row' : 'none';
+            }
+            shownCount++;
+          } else {
+            mainRow.style.display = 'none';
+            if (expanderRow) expanderRow.style.display = 'none';
+
+            // Reset toggle arrow
+            const toggleCell = mainRow.querySelector('.expand-toggle');
+            if (toggleCell) toggleCell.textContent = '▸';
+          }
+        }
+      }
+
+      window.onload = () => {
+        changeEntries();
+      };
+    </script>
 
 
   <script src="../validations/country.js"></script>

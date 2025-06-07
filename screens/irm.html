@@ -5,7 +5,7 @@
   <title>IRM Details</title>
 
   <link href="../styles/ms.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 </head>
@@ -33,9 +33,21 @@
       <button class="btn" id="search-btn">Search</button>
     </div>
 
-    <br />
 
-    <table border="1" style="width: 100%; border-collapse: collapse;">
+    <div style="text-align: right; margin-bottom: 20px;">
+      <label for="entriesSelect">Show 
+        <select id="entriesSelect" onchange="changeEntries()">
+          <option value="10">5</option>
+          <option value="20" selected>10</option>
+          <option value="50">25</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select> entries
+      </label>
+    </div>
+
+
+    <table border="1" style="width: 100%; border-collapse: collapse;" id="mainTable">
       <thead>
         <tr>
           <th></th>
@@ -47,12 +59,13 @@
           <th>Remittance Currency</th>
           <th>Remittance Amount</th>
           <th>Outstanding amount</th>
-          <th>Remitter Name Name</th>
+          <th>Remitter Name</th>
         </tr>
       </thead>
       <tbody>
+
         <tr>
-          <td onclick="toggleExpander(this)" style="cursor: pointer; user-select:none;">▸</td>
+          <td class="expand-toggle" onclick="toggleExpander(this)" style="cursor: pointer; user-select:none;">▸</td>
           <td>1</td>
           <td>ICICI Bank</td>
           <td>0002GRS12345678</td>
@@ -97,7 +110,242 @@
             </table>
           </td>
         </tr>
-      </tbody>
+
+        <tr>
+          <td class="expand-toggle" onclick="toggleExpander(this)" style="cursor: pointer; user-select:none;">▸</td>
+          <td>2</td>
+          <td>ICICI Bank</td>
+          <td>0002GRS12345678</td>
+          <td>05-05-2024</td>
+          <td>P0102</td>
+          <td>USD</td>
+          <td>$40,000.00</td>
+          <td>$40,000.00</td>
+          <td>ABC Limited</td>
+        </tr>
+        <tr class="expander" style="display: none;">
+          <td colspan="10" style="padding: 0;">
+            <table border="1" style="width: 100%; border-collapse: collapse; margin: 0;">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>AD Code</th>
+                  <th>IE Code</th>
+                  <th>Remitter Country Code</th>
+                  <th>Remitter Bank</th>
+                  <th>Other Bank Reference Number</th>
+                  <th>Status</th>
+                  <th>Remittance Type</th>
+                  <th>Utilized Amount</th>
+                  <th>Remitter Address</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td>6390000</td>
+                  <td>123456789</td>
+                  <td>US</td>
+                  <td>CITI Bank</td>
+                  <td>Test123456</td>
+                  <td>Unutilized</td>
+                  <td>IRM</td>
+                  <td>$0.00</td>
+                  <td>Test Address</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="expand-toggle" onclick="toggleExpander(this)" style="cursor: pointer; user-select:none;">▸</td>
+          <td>3</td>
+          <td>ICICI Bank</td>
+          <td>0002GRS12345678</td>
+          <td>05-05-2024</td>
+          <td>P0102</td>
+          <td>USD</td>
+          <td>$40,000.00</td>
+          <td>$40,000.00</td>
+          <td>ABC Limited</td>
+        </tr>
+        <tr class="expander" style="display: none;">
+          <td colspan="10" style="padding: 0;">
+            <table border="1" style="width: 100%; border-collapse: collapse; margin: 0;">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>AD Code</th>
+                  <th>IE Code</th>
+                  <th>Remitter Country Code</th>
+                  <th>Remitter Bank</th>
+                  <th>Other Bank Reference Number</th>
+                  <th>Status</th>
+                  <th>Remittance Type</th>
+                  <th>Utilized Amount</th>
+                  <th>Remitter Address</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td>6390000</td>
+                  <td>123456789</td>
+                  <td>US</td>
+                  <td>CITI Bank</td>
+                  <td>Test123456</td>
+                  <td>Unutilized</td>
+                  <td>IRM</td>
+                  <td>$0.00</td>
+                  <td>Test Address</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="expand-toggle" onclick="toggleExpander(this)" style="cursor: pointer; user-select:none;">▸</td>
+          <td>4</td>
+          <td>ICICI Bank</td>
+          <td>0002GRS12345678</td>
+          <td>05-05-2024</td>
+          <td>P0102</td>
+          <td>USD</td>
+          <td>$40,000.00</td>
+          <td>$40,000.00</td>
+          <td>ABC Limited</td>
+        </tr>
+        <tr class="expander" style="display: none;">
+          <td colspan="10" style="padding: 0;">
+            <table border="1" style="width: 100%; border-collapse: collapse; margin: 0;">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>AD Code</th>
+                  <th>IE Code</th>
+                  <th>Remitter Country Code</th>
+                  <th>Remitter Bank</th>
+                  <th>Other Bank Reference Number</th>
+                  <th>Status</th>
+                  <th>Remittance Type</th>
+                  <th>Utilized Amount</th>
+                  <th>Remitter Address</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td>6390000</td>
+                  <td>123456789</td>
+                  <td>US</td>
+                  <td>CITI Bank</td>
+                  <td>Test123456</td>
+                  <td>Unutilized</td>
+                  <td>IRM</td>
+                  <td>$0.00</td>
+                  <td>Test Address</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="expand-toggle" onclick="toggleExpander(this)" style="cursor: pointer; user-select:none;">▸</td>
+          <td>5</td>
+          <td>ICICI Bank</td>
+          <td>0002GRS12345678</td>
+          <td>05-05-2024</td>
+          <td>P0102</td>
+          <td>USD</td>
+          <td>$40,000.00</td>
+          <td>$40,000.00</td>
+          <td>ABC Limited</td>
+        </tr>
+        <tr class="expander" style="display: none;">
+          <td colspan="10" style="padding: 0;">
+            <table border="1" style="width: 100%; border-collapse: collapse; margin: 0;">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>AD Code</th>
+                  <th>IE Code</th>
+                  <th>Remitter Country Code</th>
+                  <th>Remitter Bank</th>
+                  <th>Other Bank Reference Number</th>
+                  <th>Status</th>
+                  <th>Remittance Type</th>
+                  <th>Utilized Amount</th>
+                  <th>Remitter Address</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td>6390000</td>
+                  <td>123456789</td>
+                  <td>US</td>
+                  <td>CITI Bank</td>
+                  <td>Test123456</td>
+                  <td>Unutilized</td>
+                  <td>IRM</td>
+                  <td>$0.00</td>
+                  <td>Test Address</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="expand-toggle" onclick="toggleExpander(this)" style="cursor: pointer; user-select:none;">▸</td>
+          <td>6</td>
+          <td>ICICI Bank</td>
+          <td>0002GRS12345678</td>
+          <td>05-05-2024</td>
+          <td>P0102</td>
+          <td>USD</td>
+          <td>$40,000.00</td>
+          <td>$40,000.00</td>
+          <td>ABC Limited</td>
+        </tr>
+        <tr class="expander" style="display: none;">
+          <td colspan="10" style="padding: 0;">
+            <table border="1" style="width: 100%; border-collapse: collapse; margin: 0;">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>AD Code</th>
+                  <th>IE Code</th>
+                  <th>Remitter Country Code</th>
+                  <th>Remitter Bank</th>
+                  <th>Other Bank Reference Number</th>
+                  <th>Status</th>
+                  <th>Remittance Type</th>
+                  <th>Utilized Amount</th>
+                  <th>Remitter Address</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td>6390000</td>
+                  <td>123456789</td>
+                  <td>US</td>
+                  <td>CITI Bank</td>
+                  <td>Test123456</td>
+                  <td>Unutilized</td>
+                  <td>IRM</td>
+                  <td>$0.00</td>
+                  <td>Test Address</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+       </tbody>
     </table>
 
     <br />
@@ -110,6 +358,7 @@
 
   </div>
 
+  <!-- Toggle expander JS -->
   <script>
     function toggleExpander(el) {
       const row = el.parentElement;
@@ -120,8 +369,10 @@
     }
   </script>
 
+  <!-- Sidebar loader -->
   <script src="../sidebar/sidebar_loader.js" defer></script>
 
+  <!-- Search field dynamic placeholder -->
   <script>
     function downloadSample() {
       window.location.href = "../files/sample_irm.csv";
@@ -133,7 +384,7 @@
     irmSearchField.addEventListener('change', () => {
       const field = irmSearchField.value;
       let placeholder = 'Enter search value';
-      switch(field) {
+      switch (field) {
         case 'refNumber': placeholder = 'Enter Remittance Reference Number'; break;
         case 'irmDate': placeholder = 'Enter IRM Date'; break;
         case 'bankName': placeholder = 'Enter Bank Name'; break;
@@ -146,6 +397,60 @@
       irmSearchValue.placeholder = placeholder;
     });
   </script>
+
+  <script>
+    function toggleExpander(el) {
+        const mainRow = el.parentElement;
+        const expanderRow = mainRow.nextElementSibling;
+
+        if (!expanderRow || !expanderRow.classList.contains('expander')) return;
+
+        if (expanderRow.style.display === 'table-row') {
+          expanderRow.style.display = 'none';
+          el.textContent = '▸';
+        } else {
+          expanderRow.style.display = 'table-row';
+          el.textContent = '▾';
+        }
+      }
+
+      function changeEntries() {
+        const table = document.getElementById('mainTable');
+        const rows = Array.from(table.querySelectorAll('tbody > tr'));
+
+        // Filter main rows (ignore expanders)
+        const mainRows = rows.filter(row => !row.classList.contains('expander'));
+        const selected = parseInt(document.getElementById('entriesSelect').value);
+
+        let shownCount = 0;
+        for (let i = 0; i < mainRows.length; i++) {
+          const mainRow = mainRows[i];
+          const expanderRow = mainRow.nextElementSibling && mainRow.nextElementSibling.classList.contains('expander')
+            ? mainRow.nextElementSibling
+            : null;
+
+          if (shownCount < selected) {
+            mainRow.style.display = '';
+            if (expanderRow) {
+              const toggleCell = mainRow.querySelector('.expand-toggle');
+              expanderRow.style.display = (toggleCell && toggleCell.textContent === '▾') ? 'table-row' : 'none';
+            }
+            shownCount++;
+          } else {
+            mainRow.style.display = 'none';
+            if (expanderRow) expanderRow.style.display = 'none';
+
+            // Reset toggle arrow
+            const toggleCell = mainRow.querySelector('.expand-toggle');
+            if (toggleCell) toggleCell.textContent = '▸';
+          }
+        }
+      }
+
+      window.onload = () => {
+        changeEntries();
+      };
+    </script>
 
 </body>
 </html>
