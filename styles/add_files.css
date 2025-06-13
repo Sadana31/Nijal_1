@@ -7,8 +7,12 @@
 
 /* Root Variables */
 :root {
-  --sidebar-expanded-width: 280px;
-  --sidebar-collapsed-width: 70px;
+  --sidebar-expanded-width: 130px;
+ 
+}
+
+.prefilled {
+  background-color: #f0f0f0; /* light grey */
 }
 
 /* Body & Typography */

@@ -1,132 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Show N Rows Only - Demo</title>
+  <meta charset="UTF-8">
+  <title>Toast Test</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    td, th {
-      border: 1px solid #ccc;
-      padding: 5px 10px;
-    }
-    .expander {
-      display: none;
-    }
-    .expand-toggle {
-      cursor: pointer;
-      user-select: none;
-      text-align: center;
-      font-weight: bold;
-      width: 20px;
+    .position-fixed {
+      z-index: 9999;
     }
   </style>
 </head>
 <body>
 
-  <label for="entriesSelect">Show
-    <select id="entriesSelect" onchange="changeEntries()">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-    </select>
-  entries</label>
+<!-- Button to trigger toast -->
+<button class="btn btn-primary m-4" onclick="showToast('✅ Toast is working!', 'success')">Show Toast</button>
 
-  <table id="mainTable">
-    <thead>
-      <tr>
-        <th></th>
-        <th>Sr. No.</th>
-        <th>Data</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Row 1 -->
-      <tr>
-        <td class="expand-toggle" onclick="toggleExpander(this)">▸</td>
-        <td>1</td>
-        <td>Row 1 content</td>
-      </tr>
-      <tr class="expander">
-        <td colspan="3">Expanded content for row 1</td>
-      </tr>
+<!-- Toast container -->
+<div class="position-fixed bottom-0 end-0 p-3">
+  <div id="mappingToast" class="toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div id="toastMsg" class="toast-body"></div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
 
-      <!-- Row 2 -->
-      <tr>
-        <td class="expand-toggle" onclick="toggleExpander(this)">▸</td>
-        <td>2</td>
-        <td>Row 2 content</td>
-      </tr>
-      <tr class="expander">
-        <td colspan="3">Expanded content for row 2</td>
-      </tr>
+<!-- Bootstrap JS (required for toast to work) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-      <!-- Row 3 -->
-      <tr>
-        <td class="expand-toggle" onclick="toggleExpander(this)">▸</td>
-        <td>3</td>
-        <td>Row 3 content</td>
-      </tr>
-      <tr class="expander">
-        <td colspan="3">Expanded content for row 3</td>
-      </tr>
-    </tbody>
-  </table>
+<!-- Toast logic -->
+<script>
+  function showToast(message, type = "success") {
+    const toastEl = document.getElementById("mappingToast");
+    const toastMsg = document.getElementById("toastMsg");
 
-  <script>
-    function toggleExpander(el) {
-      const mainRow = el.parentElement;
-      const expanderRow = mainRow.nextElementSibling;
+    toastMsg.textContent = message;
 
-      if (!expanderRow || !expanderRow.classList.contains('expander')) return;
+    toastEl.classList.remove("text-bg-success", "text-bg-danger");
+    toastEl.classList.add(type === "success" ? "text-bg-success" : "text-bg-danger");
 
-      if (expanderRow.style.display === 'table-row') {
-        expanderRow.style.display = 'none';
-        el.textContent = '▸';
-      } else {
-        expanderRow.style.display = 'table-row';
-        el.textContent = '▾';
-      }
-    }
+    const toast = new bootstrap.Toast(toastEl);
+    toast.show();
+  }
+</script>
 
-    function changeEntries() {
-      const table = document.getElementById('mainTable');
-      const rows = Array.from(table.querySelectorAll('tbody > tr'));
-
-      // Filter main rows (ignore expanders)
-      const mainRows = rows.filter(row => !row.classList.contains('expander'));
-      const selected = parseInt(document.getElementById('entriesSelect').value);
-
-      let shownCount = 0;
-      for (let i = 0; i < mainRows.length; i++) {
-        const mainRow = mainRows[i];
-        const expanderRow = mainRow.nextElementSibling && mainRow.nextElementSibling.classList.contains('expander')
-          ? mainRow.nextElementSibling
-          : null;
-
-        if (shownCount < selected) {
-          mainRow.style.display = '';
-          if (expanderRow) {
-            const toggleCell = mainRow.querySelector('.expand-toggle');
-            expanderRow.style.display = (toggleCell && toggleCell.textContent === '▾') ? 'table-row' : 'none';
-          }
-          shownCount++;
-        } else {
-          mainRow.style.display = 'none';
-          if (expanderRow) expanderRow.style.display = 'none';
-
-          // Reset toggle arrow
-          const toggleCell = mainRow.querySelector('.expand-toggle');
-          if (toggleCell) toggleCell.textContent = '▸';
-        }
-      }
-    }
-
-    window.onload = () => {
-      changeEntries();
-    };
-  </script>
 </body>
 </html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Modify IRM</title>
+  <link rel="stylesheet" href="../styles/add_files.css" />
+  <style>
+    .prefilled {
+      background-color: rgb(240, 237, 237);
+    }
+  </style>
+</head>
+<body>
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <h2>Modify IRM</h2>
+    <form id="modifyIrmForm">
+      <fieldset>
+        <legend>Remittance Basic Details</legend>
+        <div class="form-grid">
+          <div>
+            <label for="bankName">Bank Name*:</label>
+            <input type="text" id="bankName" name="bankName" required />
+          </div>
+          <div>
+            <label for="remittancereferencenumber">Remittance Reference No*:</label>
+            <input type="text" id="remittancereferencenumber" name="remittancereferencenumber" required />
+          </div>
+          <div>
+            <label for="remittancedate">Remittance Date*:</label>
+            <input type="date" id="remittancedate" name="remittancedate" required />
+          </div>
+          <div>
+            <label for="purposecode">Purpose Code*:</label>
+            <input type="text" id="purposecode" name="purposecode" required />
+          </div>
+          <div>
+            <label for="remittancecurrency">Remittance Currency*:</label>
+            <input type="text" id="remittancecurrency" name="remittancecurrency" maxlength="3" required />
+          </div>
+          <div>
+            <label for="remittanceamount">Remittance Amount*:</label>
+            <input type="number" step="0.01" id="remittanceamount" name="remittanceamount" required />
+          </div>
+          <div>
+            <label for="outstandingamount">Outstanding Amount*:</label>
+            <input type="number" step="0.01" id="outstandingamount" name="outstandingamount" required />
+          </div>
+          <div>
+            <label for="remittername">Remitter Name*:</label>
+            <input type="text" id="remittername" name="remittername" required />
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Additional Details</legend>
+        <div class="form-grid">
+          <div>
+            <label for="adcode">AD Code:</label>
+            <input type="text" id="adcode" name="adcode" maxlength="8" />
+          </div>
+          <div>
+            <label for="iecode">IE Code:</label>
+            <input type="text" id="iecode" name="iecode" maxlength="10" />
+          </div>
+          <div>
+            <label for="remittercountrycode">Remitter Country Code:</label>
+            <input type="text" id="remittercountrycode" name="remittercountrycode" maxlength="2" />
+          </div>
+          <div>
+            <label for="remitterbank">Remitter Bank:</label>
+            <input type="text" id="remitterbank" name="remitterbank" />
+          </div>
+          <div>
+            <label for="otherbankreferencenumber">Other Bank Reference No:</label>
+            <input type="text" id="otherbankreferencenumber" name="otherbankreferencenumber" />
+          </div>
+          <div>
+            <label for="status">Status:</label>
+            <input type="text" id="status" name="status" />
+          </div>
+          <div>
+            <label for="remittancetype">Remittance Type:</label>
+            <input type="text" id="remittancetype" name="remittancetype" />
+          </div>
+          <div>
+            <label for="utilizedamount">Utilized Amount:</label>
+            <input type="number" step="0.01" id="utilizedamount" name="utilizedamount" />
+          </div>
+          <div>
+            <label for="remitteraddress">Remitter Address:</label>
+            <input type="text" id="remitteraddress" name="remitteraddress" />
+          </div>
+        </div>
+      </fieldset>
+
+      <button type="button" class="btn-submit" onclick="window.location.href = '../screens/irm.html'">Update</button>
+
+    </form>
+  </div>
+
+  <script src="../sidebar/sidebar_loader.js" defer></script>
+  <script>
+    window.onload = function () {
+      const params = new URLSearchParams(window.location.search);
+      const fieldMap = {
+        bankname: "bankName",
+        remittancereferencenumber: "remittancereferencenumber",
+        remittancedate: "remittancedate",
+        purposecode: "purposecode",
+        remittancecurrency: "remittancecurrency",
+        remittanceamount: "remittanceamount",
+        outstandingamount: "outstandingamount",
+        remittername: "remittername",
+        adcode: "adcode",
+        iecode: "iecode",
+        remittercountrycode: "remittercountrycode",
+        remitterbank: "remitterbank",
+        otherbankreferencenumber: "otherbankreferencenumber",
+        status: "status",
+        remittancetype: "remittancetype",
+        utilizedamount: "utilizedamount",
+        remitteraddress: "remitteraddress"
+      };
+
+      for (const [key, value] of params.entries()) {
+        const id = fieldMap[key.toLowerCase()];
+        if (id) {
+          const input = document.getElementById(id);
+          if (input) {
+            let decodedValue = decodeURIComponent(value.replace(/\+/g, " "));
+            if (input.type === "date" && /^\d{2}-\d{2}-\d{4}$/.test(decodedValue)) {
+              const [dd, mm, yyyy] = decodedValue.split("-");
+              decodedValue = `${yyyy}-${mm}-${dd}`;
+            }
+            if (input.type === "number") {
+              decodedValue = decodedValue.replace(/,/g, "");
+            }
+            input.value = decodedValue;
+            input.classList.add("prefilled");
+          }
+        }
+      }
+      const submitBtn = document.querySelector(".btn-submit");
+      if (submitBtn) submitBtn.textContent = "Update";
+    };
+  </script>
+</body>
+</html>

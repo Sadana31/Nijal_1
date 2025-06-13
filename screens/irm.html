@@ -31,6 +31,12 @@
 
       <input type="text" id="irm-search-value" placeholder="Enter search value" />
       <button class="btn" id="search-btn">Search</button>
+
+      <div class="button-group" style="margin-top: -1px; margin-left: 250px;">
+        <button onclick="window.location.href='add_irm.html'" class="btn-top">Add IRM</button>
+        <button onclick="window.location.href='upload_irm.html'" class="btn-top">Bulk IRM Upload</button>
+        <button class="btn-top" onclick="downloadSample()">Export File</button>
+      </div>
     </div>
 
 
@@ -51,7 +57,7 @@
       <thead>
         <tr>
           <th></th>
-          <th>Sr. No.</th>
+          <th></th>
           <th>Bank Name</th>
           <th>Remittance Reference Number</th>
           <th>Remittance Date</th>
@@ -65,15 +71,15 @@
       <tbody>
 
         <tr>
+          <td><input type="checkbox" name="irmSelect" value="0002GRS12345678"></td>
           <td class="expand-toggle" onclick="toggleExpander(this)" style="cursor: pointer; user-select:none;">▸</td>
-          <td>1</td>
           <td>ICICI Bank</td>
           <td>0002GRS12345678</td>
           <td>05-05-2024</td>
           <td>P0102</td>
           <td>USD</td>
-          <td>$40,000.00</td>
-          <td>$40,000.00</td>
+          <td>40,000.00</td>
+          <td>40,000.00</td>
           <td>ABC Limited</td>
         </tr>
         <tr class="expander" style="display: none;">
@@ -81,6 +87,8 @@
             <table border="1" style="width: 100%; border-collapse: collapse; margin: 0;">
               <thead>
                 <tr>
+                  <th></th>
+                  <th></th>
                   <th></th>
                   <th>AD Code</th>
                   <th>IE Code</th>
@@ -95,6 +103,8 @@
               </thead>
               <tbody>
                 <tr>
+                  <td></td>
+                  <td></td>
                   <td></td>
                   <td>6390000</td>
                   <td>123456789</td>
@@ -112,15 +122,15 @@
         </tr>
 
         <tr>
+          <td><input type="checkbox" name="irmSelect" value="0002GRS12345678"></td>
           <td class="expand-toggle" onclick="toggleExpander(this)" style="cursor: pointer; user-select:none;">▸</td>
-          <td>2</td>
           <td>ICICI Bank</td>
           <td>0002GRS12345678</td>
           <td>05-05-2024</td>
           <td>P0102</td>
           <td>USD</td>
-          <td>$40,000.00</td>
-          <td>$40,000.00</td>
+          <td>40,000.00</td>
+          <td>40,000.00</td>
           <td>ABC Limited</td>
         </tr>
         <tr class="expander" style="display: none;">
@@ -128,6 +138,8 @@
             <table border="1" style="width: 100%; border-collapse: collapse; margin: 0;">
               <thead>
                 <tr>
+                  <th></th>
+                  <th></th>
                   <th></th>
                   <th>AD Code</th>
                   <th>IE Code</th>
@@ -142,6 +154,8 @@
               </thead>
               <tbody>
                 <tr>
+                  <td></td>
+                  <td></td>
                   <td></td>
                   <td>6390000</td>
                   <td>123456789</td>
@@ -159,15 +173,15 @@
         </tr>
 
         <tr>
+          <td><input type="checkbox" name="irmSelect" value="0002GRS12345678"></td>
           <td class="expand-toggle" onclick="toggleExpander(this)" style="cursor: pointer; user-select:none;">▸</td>
-          <td>3</td>
           <td>ICICI Bank</td>
           <td>0002GRS12345678</td>
           <td>05-05-2024</td>
           <td>P0102</td>
           <td>USD</td>
-          <td>$40,000.00</td>
-          <td>$40,000.00</td>
+          <td>40,000.00</td>
+          <td>40,000.00</td>
           <td>ABC Limited</td>
         </tr>
         <tr class="expander" style="display: none;">
@@ -175,6 +189,8 @@
             <table border="1" style="width: 100%; border-collapse: collapse; margin: 0;">
               <thead>
                 <tr>
+                  <th></th>
+                  <th></th>
                   <th></th>
                   <th>AD Code</th>
                   <th>IE Code</th>
@@ -189,6 +205,8 @@
               </thead>
               <tbody>
                 <tr>
+                  <td></td>
+                  <td></td>
                   <td></td>
                   <td>6390000</td>
                   <td>123456789</td>
@@ -206,15 +224,15 @@
         </tr>
 
         <tr>
+          <td><input type="checkbox" name="irmSelect" value="0002GRS12345678"></td>
           <td class="expand-toggle" onclick="toggleExpander(this)" style="cursor: pointer; user-select:none;">▸</td>
-          <td>4</td>
           <td>ICICI Bank</td>
           <td>0002GRS12345678</td>
           <td>05-05-2024</td>
           <td>P0102</td>
           <td>USD</td>
-          <td>$40,000.00</td>
-          <td>$40,000.00</td>
+          <td>40,000.00</td>
+          <td>40,000.00</td>
           <td>ABC Limited</td>
         </tr>
         <tr class="expander" style="display: none;">
@@ -222,6 +240,8 @@
             <table border="1" style="width: 100%; border-collapse: collapse; margin: 0;">
               <thead>
                 <tr>
+                  <th></th>
+                  <th></th>
                   <th></th>
                   <th>AD Code</th>
                   <th>IE Code</th>
@@ -236,6 +256,8 @@
               </thead>
               <tbody>
                 <tr>
+                  <td></td>
+                  <td></td>
                   <td></td>
                   <td>6390000</td>
                   <td>123456789</td>
@@ -253,15 +275,15 @@
         </tr>
 
         <tr>
+          <td><input type="checkbox" name="irmSelect" value="0002GRS12345678"></td>
           <td class="expand-toggle" onclick="toggleExpander(this)" style="cursor: pointer; user-select:none;">▸</td>
-          <td>5</td>
           <td>ICICI Bank</td>
           <td>0002GRS12345678</td>
           <td>05-05-2024</td>
           <td>P0102</td>
           <td>USD</td>
-          <td>$40,000.00</td>
-          <td>$40,000.00</td>
+          <td>40,000.00</td>
+          <td>40,000.00</td>
           <td>ABC Limited</td>
         </tr>
         <tr class="expander" style="display: none;">
@@ -269,6 +291,8 @@
             <table border="1" style="width: 100%; border-collapse: collapse; margin: 0;">
               <thead>
                 <tr>
+                  <th></th>
+                  <th></th>
                   <th></th>
                   <th>AD Code</th>
                   <th>IE Code</th>
@@ -283,6 +307,8 @@
               </thead>
               <tbody>
                 <tr>
+                  <td></td>
+                  <td></td>
                   <td></td>
                   <td>6390000</td>
                   <td>123456789</td>
@@ -300,15 +326,15 @@
         </tr>
 
         <tr>
+          <td><input type="checkbox" name="irmSelect" value="0002GRS12345678"></td>
           <td class="expand-toggle" onclick="toggleExpander(this)" style="cursor: pointer; user-select:none;">▸</td>
-          <td>6</td>
           <td>ICICI Bank</td>
           <td>0002GRS12345678</td>
           <td>05-05-2024</td>
           <td>P0102</td>
           <td>USD</td>
-          <td>$40,000.00</td>
-          <td>$40,000.00</td>
+          <td>40,000.00</td>
+          <td>40,000.00</td>
           <td>ABC Limited</td>
         </tr>
         <tr class="expander" style="display: none;">
@@ -316,6 +342,8 @@
             <table border="1" style="width: 100%; border-collapse: collapse; margin: 0;">
               <thead>
                 <tr>
+                  <th></th>
+                  <th></th>
                   <th></th>
                   <th>AD Code</th>
                   <th>IE Code</th>
@@ -330,6 +358,8 @@
               </thead>
               <tbody>
                 <tr>
+                  <td></td>
+                  <td></td>
                   <td></td>
                   <td>6390000</td>
                   <td>123456789</td>
@@ -351,106 +381,384 @@
     <br />
 
     <div class="button-group">
-      <button onclick="window.location.href='add_irm.html'" class="btn">Add IRM</button>
-      <button onclick="window.location.href='upload_irm.html'" class="btn">Bulk IRM Upload</button>
-      <button class="btn" onclick="downloadSample()">Export File</button>
+  <button onclick="showSelectedDetails()" class="btn-top">Details</button>
+  <a href="upload_sb.html" class="btn-go-to-add-sb"></a>
+  <button class="btn-top" id="proceedBtn">Proceed to SB Mapping</button>
+  <button class="btn-top" onclick="modifySelectedIRM()">Modify IRM</button>
+</div>
+
+<div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="detailsModalLabel">IRM Details</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="modalContent" class="container-fluid">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
     </div>
-
   </div>
+</div> 
 
-  <!-- Toggle expander JS -->
-  <script>
-    function toggleExpander(el) {
-      const row = el.parentElement;
-      const nextRow = row.nextElementSibling;
-      const expanded = nextRow.style.display === 'table-row';
-      nextRow.style.display = expanded ? 'none' : 'table-row';
-      el.textContent = expanded ? '▸' : '▾';
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1100">
+  <div id="irmToast" class="toast align-items-center text-white bg-danger border-0" role="alert">
+    <div class="d-flex">
+      <div class="toast-body" id="toastMsg">Please select an IRM</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
+
+
+  
+
+
+
+<script>
+  document.getElementById("proceedBtn").addEventListener("click", function () {
+    const selected = document.querySelectorAll('input[name="irmSelect"]:checked');
+    
+    if (selected.length > 1 || selected.length < 1) {
+      document.getElementById("toastMsg").innerText = "Please select one IRM to proceed.";
+      const toastEl = new bootstrap.Toast(document.getElementById("irmToast"));
+      toastEl.show();
+    } else {
+      window.location.href = "../screens/mapping.html?focus=irm";
     }
-  </script>
+  });
+</script>
 
-  <!-- Sidebar loader -->
-  <script src="../sidebar/sidebar_loader.js" defer></script>
 
-  <!-- Search field dynamic placeholder -->
-  <script>
-    function downloadSample() {
-      window.location.href = "../files/sample_irm.csv";
+<script>
+  function showSelectedDetails() {
+    const checked = document.querySelector('input[name="irmSelect"]:checked');
+if (!checked) {
+  document.getElementById("toastMsg").innerText = "Please select an IRM first.";
+  const toastEl = new bootstrap.Toast(document.getElementById("irmToast"));
+  toastEl.show();
+  return;
+}
+
+
+    const row = checked.closest('tr');
+    const expander = row.nextElementSibling;
+
+    const headers = [
+      "Bank Name", "Shipping Bill", "Shipping Bill Date", "Port Code",
+      "FOB Currency", "Export Bill Value", "Bill Outstanding Value", "Buyer Name",
+      "AD Code", "IE Code", "Remitter Country Code", "Remitter Bank",
+      "Other Bank Reference Number", "Status", "Remittance Type",
+      "Utilized Amount", "Remitter Address"
+    ];
+
+    const mainVals = Array.from(row.children).slice(2).map(td => td.textContent.trim());
+    const extraVals = Array.from(expander.querySelectorAll("tbody tr td")).slice(3).map(td => td.textContent.trim());
+
+    const allValues = mainVals.concat(extraVals);
+
+    const pairs = headers.map((label, i) => [label, allValues[i]])
+      .filter(([, val]) => val && val !== "NA" && val !== "-");
+
+    const container = document.getElementById("modalContent");
+
+    let html = '<div class="container-fluid">';
+    for (let i = 0; i < pairs.length; i++) {
+      if (i % 6 === 0) html += '<div class="row mb-3">';
+      html += `
+        <div class="col-md-2">
+          <div class="detail-label">${pairs[i][0]}</div>
+          <div class="detail-value">${pairs[i][1]}</div>
+        </div>`;
+      if (i % 6 === 5 || i === pairs.length - 1) html += '</div>';
     }
+    html += '</div>';
+    html+=`<br><br>
+  <div class="invoice-tabs">
+  <br>
+    <h4 style="margin-left: 20px;">Mapping History</h4>
+  <br>
+<table border="1" id="mainTable" style="width: 100%; border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Shipping Bill</th>
+      <th>Form No</th>
+      <th>Shipping Bill Date</th>
+      <th>Port Code</th>
+      <th>Export Agency</th>
+      <th>AD Code</th>
+      <th>IE Code</th>
+      <th>Invoice No</th>
+      <th>Invoice Date</th>
+      <th>FOB Currency</th>
+      <th>Export Bill Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="expand-toggle" onclick="toggleExpander(this)" style="cursor: pointer; user-select:none; text-align:center; font-weight:bold;">
+        ▸
+      </td>
+      <td>1234567</td>
+      <td>NA</td>
+      <td>10-05-2024</td>
+      <td>INBOM4</td>
+      <td>Customs</td>
+      <td>6390000</td>
+      <td>123456789</td>
+      <td>21127240024-01</td>
+      <td>05-05-2024</td>
+      <td>USD</td>
+      <td>10,000.00</td>
+    </tr>
 
-    const irmSearchField = document.getElementById('irm-search-field');
-    const irmSearchValue = document.getElementById('irm-search-value');
+    <tr class="expander" style="display: none;">
+      <td colspan="13" style="padding: 0;">
+        <table border="1" style="width: 100%; border-collapse: collapse; margin: 0;">
+          <thead>
+            <tr>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th>Realized Value</th>
+              <th>Outstanding Value</th>
+              <th>SB Utilization</th>
+              <th>Remittance Ref No</th>
+              <th>AD Code</th>
+              <th>Bank Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>6,000.00</td>
+              <td>4,000.00</td>
+              <td>2,000.00</td>
+              <td>0002GRS12345678</td>
+              <td>6390000</td>
+              <td>ICICI Bank</td>
+            </tr>
+          </tbody>
 
-    irmSearchField.addEventListener('change', () => {
-      const field = irmSearchField.value;
-      let placeholder = 'Enter search value';
-      switch (field) {
-        case 'refNumber': placeholder = 'Enter Remittance Reference Number'; break;
-        case 'irmDate': placeholder = 'Enter IRM Date'; break;
-        case 'bankName': placeholder = 'Enter Bank Name'; break;
-        case 'remitterBank': placeholder = 'Enter Remitter Bank'; break;
-        case 'remitterName': placeholder = 'Enter Remitter Name'; break;
-        case 'remitterCountryCode': placeholder = 'Enter Remitter Country Code'; break;
-        case 'status': placeholder = 'Enter Status'; break;
-        case 'remittanceAmount': placeholder = 'Enter Remittance Amount'; break;
-      }
-      irmSearchValue.placeholder = placeholder;
-    });
-  </script>
+          <thead>
+            <tr>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th>IE Code</th>
+              <th>Remittance Date</th>
+              <th>Purpose Code</th>
+              <th>Remittance Currency</th>
+              <th>Remittance Amount</th>
+              <th>Utilized Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>123456789</td>
+              <td>05-05-2024</td>
+              <td>P0102</td>
+              <td>USD</td>
+              <td>40,000</td>
+              <td>2,000</td>
+            </tr>
+          </tbody>
 
-  <script>
-    function toggleExpander(el) {
-        const mainRow = el.parentElement;
-        const expanderRow = mainRow.nextElementSibling;
+          <thead>
+            <tr>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th>Remittance Outstanding</th>
+              <th>IRM Utilization</th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>38,000</td>
+              <td>2,000</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-        if (!expanderRow || !expanderRow.classList.contains('expander')) return;
+</div>`;
 
-        if (expanderRow.style.display === 'table-row') {
-          expanderRow.style.display = 'none';
-          el.textContent = '▸';
-        } else {
-          expanderRow.style.display = 'table-row';
-          el.textContent = '▾';
+    container.innerHTML = html;
+    new bootstrap.Modal(document.getElementById("detailsModal")).show();
+  }
+</script>
+
+<script>
+  function toggleExpander(el) {
+    const row = el.parentElement;
+    const nextRow = row.nextElementSibling;
+    const expanded = nextRow.style.display === 'table-row';
+    nextRow.style.display = expanded ? 'none' : 'table-row';
+    el.textContent = expanded ? '▸' : '▾';
+  }
+</script>
+
+<script src="../sidebar/sidebar_loader.js" defer></script>
+
+<script>
+  function downloadSample() {
+    window.location.href = "../files/sample_irm.csv";
+  }
+
+  const irmSearchField = document.getElementById('irm-search-field');
+  const irmSearchValue = document.getElementById('irm-search-value');
+
+  irmSearchField.addEventListener('change', () => {
+    const field = irmSearchField.value;
+    let placeholder = 'Enter search value';
+    switch (field) {
+      case 'refNumber': placeholder = 'Enter Remittance Reference Number'; break;
+      case 'irmDate': placeholder = 'Enter IRM Date'; break;
+      case 'bankName': placeholder = 'Enter Bank Name'; break;
+      case 'remitterBank': placeholder = 'Enter Remitter Bank'; break;
+      case 'remitterName': placeholder = 'Enter Remitter Name'; break;
+      case 'remitterCountryCode': placeholder = 'Enter Remitter Country Code'; break;
+      case 'status': placeholder = 'Enter Status'; break;
+      case 'remittanceAmount': placeholder = 'Enter Remittance Amount'; break;
+    }
+    irmSearchValue.placeholder = placeholder;
+  });
+</script>
+
+<script>
+  function toggleExpander(el) {
+    const mainRow = el.parentElement;
+    const expanderRow = mainRow.nextElementSibling;
+
+    if (!expanderRow || !expanderRow.classList.contains('expander')) return;
+
+    if (expanderRow.style.display === 'table-row') {
+      expanderRow.style.display = 'none';
+      el.textContent = '▸';
+    } else {
+      expanderRow.style.display = 'table-row';
+      el.textContent = '▾';
+    }
+  }
+
+  function changeEntries() {
+    const table = document.getElementById('mainTable');
+    const rows = Array.from(table.querySelectorAll('tbody > tr'));
+
+    const mainRows = rows.filter(row => !row.classList.contains('expander'));
+    const selected = parseInt(document.getElementById('entriesSelect').value);
+
+    let shownCount = 0;
+    for (let i = 0; i < mainRows.length; i++) {
+      const mainRow = mainRows[i];
+      const expanderRow = mainRow.nextElementSibling && mainRow.nextElementSibling.classList.contains('expander')
+        ? mainRow.nextElementSibling
+        : null;
+
+      if (shownCount < selected) {
+        mainRow.style.display = '';
+        if (expanderRow) {
+          const toggleCell = mainRow.querySelector('.expand-toggle');
+          expanderRow.style.display = (toggleCell && toggleCell.textContent === '▾') ? 'table-row' : 'none';
         }
+        shownCount++;
+      } else {
+        mainRow.style.display = 'none';
+        if (expanderRow) expanderRow.style.display = 'none';
+
+        const toggleCell = mainRow.querySelector('.expand-toggle');
+        if (toggleCell) toggleCell.textContent = '▸';
       }
+    }
+  }
 
-      function changeEntries() {
-        const table = document.getElementById('mainTable');
-        const rows = Array.from(table.querySelectorAll('tbody > tr'));
+  window.onload = () => {
+    changeEntries();
+  };
+</script>
 
-        // Filter main rows (ignore expanders)
-        const mainRows = rows.filter(row => !row.classList.contains('expander'));
-        const selected = parseInt(document.getElementById('entriesSelect').value);
+<script>
+function modifySelectedIRM() {
+  const table = document.getElementById('mainTable');
+  const checkboxes = table.querySelectorAll('tbody input[type="checkbox"]');
+  let selectedRow = null;
 
-        let shownCount = 0;
-        for (let i = 0; i < mainRows.length; i++) {
-          const mainRow = mainRows[i];
-          const expanderRow = mainRow.nextElementSibling && mainRow.nextElementSibling.classList.contains('expander')
-            ? mainRow.nextElementSibling
-            : null;
+  checkboxes.forEach((cb) => {
+    if (cb.checked) {
+      selectedRow = cb.closest('tr');
+    }
+  });
 
-          if (shownCount < selected) {
-            mainRow.style.display = '';
-            if (expanderRow) {
-              const toggleCell = mainRow.querySelector('.expand-toggle');
-              expanderRow.style.display = (toggleCell && toggleCell.textContent === '▾') ? 'table-row' : 'none';
-            }
-            shownCount++;
-          } else {
-            mainRow.style.display = 'none';
-            if (expanderRow) expanderRow.style.display = 'none';
+  if (!selectedRow) {
+  document.getElementById("toastMsg").innerText = "Please select one IRM to modify.";
+  const toastEl = new bootstrap.Toast(document.getElementById("irmToast"));
+  toastEl.show();
+  return;
+}
 
-            // Reset toggle arrow
-            const toggleCell = mainRow.querySelector('.expand-toggle');
-            if (toggleCell) toggleCell.textContent = '▸';
-          }
-        }
-      }
 
-      window.onload = () => {
-        changeEntries();
-      };
-    </script>
+  // Headers from main table
+  const mainHeaders = Array.from(table.querySelectorAll('thead tr:nth-child(1) th')).map(h =>
+    h.textContent.trim().toLowerCase().replace(/\s+/g, '')
+  );
 
+  const mainCells = selectedRow.querySelectorAll('td');
+
+  // Get expander row and nested table headers & data
+  const expanderRow = selectedRow.nextElementSibling;
+  let expHeaders = [], expCells = [];
+  if (expanderRow && expanderRow.classList.contains('expander')) {
+    expHeaders = Array.from(expanderRow.querySelectorAll('thead th')).map(h =>
+      h.textContent.trim().toLowerCase().replace(/\s+/g, '')
+    );
+    expCells = expanderRow.querySelectorAll('tbody td');
+  }
+
+  const params = new URLSearchParams();
+
+  mainHeaders.forEach((header, index) => {
+    if (header && mainCells[index]) {
+      const value = mainCells[index].textContent.trim();
+      params.append(header, value);
+    }
+  });
+
+  expHeaders.forEach((header, index) => {
+    if (header && expCells[index]) {
+      const value = expCells[index].textContent.trim();
+      params.append(header, value);
+    }
+  });
+
+  window.location.href = `../screens/modify_irm.html?${params.toString()}`;
+}
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</div>
 </body>
 </html>
